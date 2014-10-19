@@ -25,6 +25,8 @@ module.exports = function(config) {
 			'test/bower_components/sinon/index.js',
 			'test/bower_components/sinon-chai/lib/sinon-chai.js',
 
+      'test/fixtures/*.html',
+      'test/karma/fixtures.js',
 			'test/karma/init.js',
       'test/spec/**/*.js'
     ],
@@ -38,6 +40,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'test/fixtures/**/*.html': 'html2js'
     },
 
 
@@ -61,12 +64,12 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox'],
 
 
     // Continuous Integration mode

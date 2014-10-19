@@ -3,7 +3,7 @@ window.Counter = function(value) {
 	var self = this;
 
 	self.inc = function() {
-		value++;
+		value += 1;
 	};
 
 	self.dec = function() {
