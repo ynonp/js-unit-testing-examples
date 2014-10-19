@@ -1,8 +1,10 @@
 function Colors(body_el) {
   var self = this;
 
+  var validColors = ['red', 'blue', 'green', 'white', 'yellow', 'black', 'brown'];
+
   self.getCss = function(color) {
-      if ( color === 'pink' ) {
+      if ( validColors.indexOf(color.toLowerCase()) === -1 ) {
         throw new Error('Pink is not allowed');
       }
       return { 'background' : color }
@@ -11,18 +13,16 @@ function Colors(body_el) {
   self.paint = function(color) {
       body_el.css(self.getCss(color));
   };
+
+  self.addColorButton = function(button, color) {
+    button.on('click', function() {
+      self.paint(color);
+    });
+  };
 }
 
 var colors = new Colors($('body'));
+colors.addColorButton($('#btnRed'), 'red');
+colors.addColorButton($('#btnBlue'), 'blue');
+colors.addColorButton($('#btnGreen'), 'green');
 
-$('#btnRed').on('click', function() {
-  colors.paint('red');
-});
-
-$('#btnBlue').on('click', function() {
-  colors.paint('blue');
-});
-
-$('#btnGreen').on('click', function() {
-  colors.paint('green');
-});
