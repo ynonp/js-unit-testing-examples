@@ -321,8 +321,17 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
     }
   });
+
+
+  grunt.loadNpmTasks('grunt-karma');
 
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {

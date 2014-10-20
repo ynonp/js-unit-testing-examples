@@ -5,7 +5,7 @@ function Colors(body_el) {
 
   self.getCss = function(color) {
       if ( validColors.indexOf(color.toLowerCase()) === -1 ) {
-        throw new Error('Pink is not allowed');
+        throw new Error('Invalid color');
       }
       return { 'background' : color }
   };
